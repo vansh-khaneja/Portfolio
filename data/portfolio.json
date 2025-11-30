@@ -19,8 +19,8 @@
     "bio": "I'm a passionate developer with a keen eye for design and a love for creating seamless user experiences. With expertise in modern web technologies, I bring ideas to life through clean code and innovative solutions.",
     "skills": [
       {
-        "name": "Python & AI/ML",
-        "level": 95
+        "name": "AI/ML",
+        "level": 5
       },
       {
         "name": "TensorFlow & OpenCV",
@@ -38,9 +38,9 @@
         "icon": "🎓"
       },
       {
-        "value": "2",
-        "label": "AI Projects",
-        "icon": "🤖"
+        "value": "10",
+        "label": "Projects",
+        "icon": "🚀"
       },
       {
         "value": "3",
@@ -119,43 +119,33 @@
   "projects": [
     {
       "id": 1,
-      "title": "LegalAI Bot",
-      "category": "AI & NLP",
-      "description": "References-based agentic AI bot specialized for law-based questions with semantic search and LLM-powered responses",
-      "image": "/projects/project1.jpg",
-      "technologies": ["FastAPI", "Llama 3", "Qdrant", "NLP"],
-      "link": "https://example.com",
-      "github": "https://github.com/yourusername/legalai"
+      "title": "ConvoFlow",
+      "category": "AI Workflows",
+      "description": "Visual workflow builder for AI applications. Design, deploy, and scale RAG systems with intuitive drag-and-drop interface",
+      "image": "/convoflow-project.png",
+      "technologies": ["RAG", "Docker", "AI", "Workflows"],
+      "link": "https://docs.convoflow.vanshkhaneja.com/",
+      "github": "https://github.com/yourusername/convoflow"
     },
     {
       "id": 2,
-      "title": "Nutr AI Searcher",
-      "category": "Computer Vision",
-      "description": "Multimodal food analysis application using CLIP model for nutrient identification from images and text",
-      "image": "/projects/project2.jpg",
-      "technologies": ["Python", "OpenCV", "CLIP", "Qdrant"],
-      "link": "https://example.com",
-      "github": "https://github.com/yourusername/nutrai"
+      "title": "Drapely.ai",
+      "category": "E-commerce & AI",
+      "description": "AI-powered fashion e-commerce platform with personalized shopping experience and virtual try-on features",
+      "image": "/drapely-project.png",
+      "technologies": ["Next.js", "AI", "E-commerce", "ML"],
+      "link": "https://drapely-ai.yashverma.site/",
+      "github": "https://github.com/yourusername/drapely"
     },
     {
       "id": 3,
-      "title": "AI Customer Support Bot",
-      "category": "AI & Automation",
-      "description": "Automated customer support chatbot with product recommendations for e-commerce",
-      "image": "/projects/project3.jpg",
-      "technologies": ["Python", "NLP", "FastAPI"],
-      "link": "https://example.com",
-      "github": "https://github.com/yourusername/chatbot"
-    },
-    {
-      "id": 4,
-      "title": "Product Image Editor",
-      "category": "Computer Vision",
-      "description": "Automated solution for detecting visual defects and aligning product images for catalogues",
-      "image": "/projects/project4.jpg",
-      "technologies": ["OpenCV", "YOLOv8", "Python"],
-      "link": "https://example.com",
-      "github": "https://github.com/yourusername/image-editor"
+      "title": "ConvoFlow Docs",
+      "category": "Documentation & AI",
+      "description": "Comprehensive documentation platform for ConvoFlow with AI-powered explanations, interactive guides, and intelligent code examples",
+      "image": "/docs-convoflow-project.png",
+      "technologies": ["Documentation", "AI", "Next.js", "RAG"],
+      "link": "https://docs.convoflow.vanshkhaneja.com/",
+      "github": "https://github.com/yourusername/convoflow-docs"
     }
   ],
   "blog": [
