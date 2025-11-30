@@ -8,6 +8,14 @@ export default function Home() {
   const firstName = portfolioData.personal.name.split(' ')[0];
   const lastName = portfolioData.personal.name.split(' ').slice(1).join(' ');
   const [activeSection, setActiveSection] = useState('about');
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
   const sections = ['about', 'resume', 'portfolio', 'blog', 'contact'];
 
@@ -44,6 +52,59 @@ export default function Home() {
       });
     };
   }, []);
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY,
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+          from_name: 'Portfolio Contact Form'
+        })
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setSubmitStatus('success');
+        setFormData({
+          name: '',
+          email: '',
+          subject: '',
+          message: ''
+        });
+        setTimeout(() => setSubmitStatus('idle'), 5000);
+      } else {
+        setSubmitStatus('error');
+        setTimeout(() => setSubmitStatus('idle'), 5000);
+      }
+    } catch (error) {
+      setSubmitStatus('error');
+      setTimeout(() => setSubmitStatus('idle'), 5000);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-white relative" style={{
@@ -85,7 +146,7 @@ export default function Home() {
               A
             </a>
             <a href="#resume" className={`text-lg font-medium transition-colors ${activeSection === 'resume' ? 'text-white border-2 border-dashed border-gray-500 rounded-full w-10 h-10 flex items-center justify-center' : 'text-gray-400'}`}>
-              R
+              E
             </a>
             <a href="#portfolio" className={`text-lg font-medium transition-colors ${activeSection === 'portfolio' ? 'text-white border-2 border-dashed border-gray-500 rounded-full w-10 h-10 flex items-center justify-center' : 'text-gray-400'}`}>
               P
@@ -128,35 +189,35 @@ export default function Home() {
               <a href="#about" className="flex items-center justify-between text-gray-300 hover:text-white transition-colors text-sm tracking-[0.2em]">
                 <span>ABOUT ME</span>
                 <span className="w-4 h-4 flex items-center justify-center">
-                  {activeSection === 'about' ? (
+                {activeSection === 'about' ? (
                     <span className="w-4 h-4 rounded-full border-2 border-dashed border-white animate-pulse"></span>
-                  ) : (
-                    <span className="w-2 h-2 rounded-full bg-white"></span>
-                  )}
+                ) : (
+                  <span className="w-2 h-2 rounded-full bg-white"></span>
+                )}
                 </span>
               </a>
             </li>
             <li>
               <a href="#resume" className="flex items-center justify-between text-gray-300 hover:text-white transition-colors text-sm tracking-[0.2em]">
-                <span>RESUME</span>
+                <span>EXPERIENCE</span>
                 <span className="w-4 h-4 flex items-center justify-center">
-                  {activeSection === 'resume' ? (
+                {activeSection === 'resume' ? (
                     <span className="w-4 h-4 rounded-full border-2 border-dashed border-white animate-pulse"></span>
-                  ) : (
-                    <span className="w-2 h-2 rounded-full bg-white"></span>
-                  )}
+                ) : (
+                  <span className="w-2 h-2 rounded-full bg-white"></span>
+                )}
                 </span>
               </a>
             </li>
             <li>
               <a href="#portfolio" className="flex items-center justify-between text-gray-300 hover:text-white transition-colors text-sm tracking-[0.2em]">
-                <span>PORTFOLIO</span>
+                <span>PROJECTS</span>
                 <span className="w-4 h-4 flex items-center justify-center">
-                  {activeSection === 'portfolio' ? (
+                {activeSection === 'portfolio' ? (
                     <span className="w-4 h-4 rounded-full border-2 border-dashed border-white animate-pulse"></span>
-                  ) : (
-                    <span className="w-2 h-2 rounded-full bg-white"></span>
-                  )}
+                ) : (
+                  <span className="w-2 h-2 rounded-full bg-white"></span>
+                )}
                 </span>
               </a>
             </li>
@@ -164,11 +225,11 @@ export default function Home() {
               <a href="#blog" className="flex items-center justify-between text-gray-300 hover:text-white transition-colors text-sm tracking-[0.2em]">
                 <span>BLOG</span>
                 <span className="w-4 h-4 flex items-center justify-center">
-                  {activeSection === 'blog' ? (
+                {activeSection === 'blog' ? (
                     <span className="w-4 h-4 rounded-full border-2 border-dashed border-white animate-pulse"></span>
-                  ) : (
-                    <span className="w-2 h-2 rounded-full bg-white"></span>
-                  )}
+                ) : (
+                  <span className="w-2 h-2 rounded-full bg-white"></span>
+                )}
                 </span>
               </a>
             </li>
@@ -176,11 +237,11 @@ export default function Home() {
               <a href="#contact" className="flex items-center justify-between text-gray-300 hover:text-white transition-colors text-sm tracking-[0.2em]">
                 <span>CONTACT</span>
                 <span className="w-4 h-4 flex items-center justify-center">
-                  {activeSection === 'contact' ? (
+                {activeSection === 'contact' ? (
                     <span className="w-4 h-4 rounded-full border-2 border-dashed border-white animate-pulse"></span>
-                  ) : (
-                    <span className="w-2 h-2 rounded-full bg-white"></span>
-                  )}
+                ) : (
+                  <span className="w-2 h-2 rounded-full bg-white"></span>
+                )}
                 </span>
               </a>
             </li>
@@ -287,12 +348,12 @@ export default function Home() {
                       {portfolioData.education.map((edu, index) => (
                         <div key={edu.id} className="relative pl-6 pb-6 last:pb-0">
                           {index !== portfolioData.education.length - 1 && (
-                            <div className="absolute left-0 top-0 bottom-0 border-l-2 border-dashed border-gray-200"></div>
+                            <div className="absolute left-0 top-[1.125rem] bottom-0 border-l-2 border-dashed border-gray-200"></div>
                           )}
                           {index === portfolioData.education.length - 1 && (
-                            <div className="absolute left-0 top-0 border-l-2 border-dashed border-gray-200 h-2"></div>
+                            <div className="absolute left-0 top-[1.125rem] border-l-2 border-dashed border-gray-200 h-2"></div>
                           )}
-                          <div className="absolute -left-[3px] top-0 w-2 h-2 bg-gray-900 rounded-full"></div>
+                          <div className="absolute -left-[3px] top-[1.125rem] -translate-y-1/2 w-2 h-2 bg-gray-900 rounded-full"></div>
                           <div className="inline-block px-3 py-1 bg-white border border-dashed border-gray-300 rounded-full text-xs text-gray-500 mb-2">{edu.period}</div>
                           <h4 className="text-base font-bold text-gray-900 mb-1">{edu.degree}</h4>
                           <div className="text-gray-600 text-sm mb-1.5">@ {edu.school}</div>
@@ -313,12 +374,12 @@ export default function Home() {
                       {portfolioData.experience.map((exp, index) => (
                         <div key={exp.id} className="relative pl-6 pb-6 last:pb-0">
                           {index !== portfolioData.experience.length - 1 && (
-                            <div className="absolute left-0 top-0 bottom-0 border-l-2 border-dashed border-gray-200"></div>
+                            <div className="absolute left-0 top-[1.125rem] bottom-0 border-l-2 border-dashed border-gray-200"></div>
                           )}
                           {index === portfolioData.experience.length - 1 && (
-                            <div className="absolute left-0 top-0 border-l-2 border-dashed border-gray-200 h-2"></div>
+                            <div className="absolute left-0 top-[1.125rem] border-l-2 border-dashed border-gray-200 h-2"></div>
                           )}
-                          <div className="absolute -left-[3px] top-0 w-2 h-2 bg-gray-900 rounded-full"></div>
+                          <div className="absolute -left-[3px] top-[1.125rem] -translate-y-1/2 w-2 h-2 bg-gray-900 rounded-full"></div>
                           <div className="inline-block px-3 py-1 bg-white border border-dashed border-gray-300 rounded-full text-xs text-gray-500 mb-2">{exp.period}</div>
                           <h4 className="text-base font-bold text-gray-900 mb-1">{exp.title}</h4>
                           <div className="text-gray-600 text-sm mb-1.5">@ {exp.company}</div>
@@ -337,12 +398,12 @@ export default function Home() {
                       {portfolioData.experience.map((exp, index) => (
                         <div key={exp.id} className="relative pl-6 pb-6 last:pb-0">
                           {index !== portfolioData.experience.length - 1 && (
-                            <div className="absolute left-0 top-0 bottom-0 border-l-2 border-dashed border-gray-200"></div>
+                            <div className="absolute left-0 top-[0.75rem] bottom-0 border-l-2 border-dashed border-gray-200"></div>
                           )}
                           {index === portfolioData.experience.length - 1 && (
-                            <div className="absolute left-0 top-0 border-l-2 border-dashed border-gray-200 h-2"></div>
+                            <div className="absolute left-0 top-[0.75rem] border-l-2 border-dashed border-gray-200 h-2"></div>
                           )}
-                          <div className="absolute -left-[3px] top-0 w-2 h-2 bg-gray-900 rounded-full"></div>
+                          <div className="absolute -left-[3px] top-[0.75rem] -translate-y-1/2 w-2 h-2 bg-gray-900 rounded-full"></div>
                           <div className="text-sm text-gray-500 mb-1">{exp.period}</div>
                           <h4 className="text-lg font-bold text-gray-900 mb-1">{exp.title}</h4>
                           <div className="text-gray-600 font-medium mb-1.5">@ {exp.company}</div>
@@ -359,12 +420,12 @@ export default function Home() {
                       {portfolioData.education.map((edu, index) => (
                         <div key={edu.id} className="relative pl-6 pb-6 last:pb-0">
                           {index !== portfolioData.education.length - 1 && (
-                            <div className="absolute left-0 top-0 bottom-0 border-l-2 border-dashed border-gray-200"></div>
+                            <div className="absolute left-0 top-[0.75rem] bottom-0 border-l-2 border-dashed border-gray-200"></div>
                           )}
                           {index === portfolioData.education.length - 1 && (
-                            <div className="absolute left-0 top-0 border-l-2 border-dashed border-gray-200 h-2"></div>
+                            <div className="absolute left-0 top-[0.75rem] border-l-2 border-dashed border-gray-200 h-2"></div>
                           )}
-                          <div className="absolute -left-[3px] top-0 w-2 h-2 bg-gray-900 rounded-full"></div>
+                          <div className="absolute -left-[3px] top-[0.75rem] -translate-y-1/2 w-2 h-2 bg-gray-900 rounded-full"></div>
                           <div className="text-sm text-gray-500 mb-1">{edu.period}</div>
                           <h4 className="text-lg font-bold text-gray-900 mb-1">{edu.degree}</h4>
                           <div className="text-gray-600 font-medium mb-0.5">{edu.field}</div>
@@ -400,7 +461,7 @@ export default function Home() {
                           className="w-full h-full object-cover"
                         />
                         {/* Category badge - visible on both mobile and desktop */}
-                        <div className="absolute top-2 left-2 bg-black text-white px-3 py-1 rounded-full text-xs font-medium">
+                        <div className="absolute top-2 left-2 bg-gray-900/40 backdrop-blur-md border border-white/10 text-white px-3 py-1 rounded-full text-xs font-medium uppercase tracking-wide shadow-lg">
                           {project.category}
                         </div>
                       </div>
@@ -433,7 +494,7 @@ export default function Home() {
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">Blog Posts</h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5">
-                  {portfolioData.blog.slice(0, 3).map((post) => (
+                  {portfolioData.blog.map((post) => (
                     <article key={post.id} className="group flex flex-col">
                       <div className="h-40 md:h-40 bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl mb-3 relative overflow-hidden">
                         <img 
@@ -442,7 +503,7 @@ export default function Home() {
                           className="w-full h-full object-cover"
                         />
                         <div className="absolute top-2.5 left-2.5">
-                          <span className="px-3 py-1.5 bg-black text-white text-xs font-semibold rounded-full">
+                          <span className="px-3 py-1.5 bg-gray-900/40 backdrop-blur-md border border-white/10 text-white text-xs font-medium uppercase tracking-wide rounded-full shadow-lg">
                             {post.category}
                           </span>
                         </div>
@@ -469,7 +530,7 @@ export default function Home() {
             {/* Contact Card */}
             <div className="bg-white md:border-2 border-gray-100 md:rounded-2xl p-6 md:p-8 md:shadow-lg w-full">
               <div className="text-left">
-                <div className="text-xs md:text-sm text-gray-400 mb-2 md:mb-3 tracking-widest font-mono">// GET IN TOUCH</div>
+                <div className="text-xs md:text-sm text-gray-400 mb-2 md:mb-3 tracking-widest font-mono">// CONTACT</div>
                 <h2 className="text-3xl md:text-3xl font-bold text-gray-900 mb-2 leading-tight">Reach Me</h2>
                 <p className="text-gray-600 mb-5 text-sm">If you want to contact me, just call me or email.</p>
 
@@ -478,34 +539,57 @@ export default function Home() {
                   <p className="text-gray-900 text-xs md:text-sm font-medium">Email: {portfolioData.personal.email}</p>
                 </div>
 
-                <form className="space-y-4">
+                <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <input
                       type="text"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
                       placeholder="Name"
+                      required
                       className="px-0 py-3 bg-transparent border-0 border-b-2 border-dashed border-gray-300 rounded-none focus:outline-none focus:border-gray-900 transition-colors text-sm"
                     />
                     <input
                       type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
                       placeholder="E-Mail"
+                      required
                       className="px-0 py-3 bg-transparent border-0 border-b-2 border-dashed border-gray-300 rounded-none focus:outline-none focus:border-gray-900 transition-colors text-sm"
                     />
                   </div>
                   <input
                     type="text"
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleInputChange}
                     placeholder="Subject"
+                    required
                     className="w-full px-0 py-3 bg-transparent border-0 border-b-2 border-dashed border-gray-300 rounded-none focus:outline-none focus:border-gray-900 transition-colors text-sm"
                   />
                   <textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
                     placeholder="Message"
                     rows={4}
+                    required
                     className="w-full px-0 py-3 bg-transparent border-0 border-b-2 border-dashed border-gray-300 rounded-none focus:outline-none focus:border-gray-900 resize-none transition-colors text-sm"
                   />
+                  {submitStatus === 'success' && (
+                    <p className="text-green-600 text-sm">Message sent successfully! I'll get back to you soon.</p>
+                  )}
+                  {submitStatus === 'error' && (
+                    <p className="text-red-600 text-sm">Something went wrong. Please try again or email me directly.</p>
+                  )}
                   <button
                     type="submit"
-                    className="mt-4 px-6 py-3 bg-black text-white rounded-full font-medium hover:bg-gray-800 transition-colors text-sm w-full md:w-auto"
+                    disabled={isSubmitting}
+                    className="mt-4 px-6 py-3 bg-black text-white rounded-full font-medium hover:bg-gray-800 transition-colors text-sm w-full md:w-auto disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    Send Message
+                    {isSubmitting ? 'Sending...' : 'Send Message'}
                   </button>
                 </form>
               </div>

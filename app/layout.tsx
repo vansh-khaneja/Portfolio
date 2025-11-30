@@ -10,13 +10,13 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Vansh Khaneja - Full Stack Developer & UI Designer",
-  description: "Portfolio website of Vansh Khaneja - Full Stack Developer specializing in modern web technologies, UI/UX design, and building beautiful digital experiences.",
-  keywords: ["Vansh Khaneja", "Full Stack Developer", "Web Developer", "UI Designer", "Portfolio"],
+  title: "Vansh Khaneja - AI Engineer & Full-Stack Developer",
+  description: "Portfolio website of Vansh Khaneja - AI Engineer & Full-Stack Developer specializing in modern web technologies, AI/ML, and building innovative digital experiences.",
+  keywords: ["Vansh Khaneja", "AI Engineer", "Full Stack Developer", "Web Developer", "Portfolio"],
   authors: [{ name: "Vansh Khaneja" }],
   openGraph: {
     type: "website",
-    title: "Vansh Khaneja - Full Stack Developer & UI Designer",
+    title: "Vansh Khaneja - AI Engineer & Full-Stack Developer",
     description: "Portfolio website showcasing projects and skills",
   },
 };

@@ -80,28 +80,28 @@
       "title": "AI Research Intern",
       "company": "Superteams.ai",
       "period": "Jun 2024 - Aug 2024",
-      "description": "Conducted AI/ML research and contributed to innovative solutions"
+      "description": "Worked with newly emerging technologies in the field of LLMs and RAG systems. Like ElasticSeach, PGVector, Indexify etc. "
     },
     {
       "id": 2,
       "title": "SDE Intern",
       "company": "Mersate",
       "period": "Oct 2024 - Apr 2025",
-      "description": "Deployed web platform and AI services on AWS EC2"
+      "description": "Worked over fashion e-commerce platform and various internal tools for the company."
     },
     {
       "id": 3,
       "title": "AI Intern",
       "company": "Helios Infotech",
       "period": "Jul 2025 - Present",
-      "description": "Deployed web platform and AI services on AWS EC2"
+      "description": "Worked on various project related to LLMs, Computer Vision, Image Processing, Agents etc."
     },
     {
       "id": 4,
       "title": "Freelance Developer",
       "company": "Self-Employed",
       "period": "2024 - Present",
-      "description": "Providing AI/ML solutions, web development, and consulting services to various clients on a project basis"
+      "description": "Providing AI/ML and web development basedservices to various clients based on their requirements."
     }
   ],
   "education": [
@@ -194,6 +194,36 @@
       "image": "/image-search-blog.webp",
       "slug": "car-model-detection-reverse-image-search",
       "link": "https://medium.com/@vanshkhaneja/car-model-detection-and-reverse-image-search-ai-8fc2b41c75ee"
+    },
+    {
+      "id": 4,
+      "title": "AI in Retail: Implementing In-Store Analytics with Object Detection AI",
+      "category": "Computer Vision",
+      "excerpt": "Explore how the cutting-edge object detection model YOLOv8 can impact in-store analytics and transform the retail experience by counting customers and optimizing store operations",
+      "date": "2024-11-24",
+      "image": "/object-detection-blog.png",
+      "slug": "ai-in-retail-in-store-analytics-object-detection",
+      "link": "https://www.superteams.ai/blog/ai-in-retail-implementing-in-store-analytics-with-object-detection-ai"
+    },
+    {
+      "id": 5,
+      "title": "Step by Step Guide to Building RAG Applications Using DSPy and Llama3",
+      "category": "AI & Machine Learning",
+      "excerpt": "Explore how to create advanced Retrieval-Augmented Generation (RAG) applications with DSPy, Qdrant and Llama 3. Learn to build sophisticated chatbots that understand queries and provide relevant information instantly",
+      "date": "2024-11-24",
+      "image": "/dspy-chatbot-blog.png",
+      "slug": "step-by-step-guide-building-rag-applications-dspy-llama3",
+      "link": "https://www.superteams.ai/blog/step-by-step-guide-to-building-rag-applications-using-dspy-and-llama-3"
+    },
+    {
+      "id": 6,
+      "title": "Building a Car Counting System: Computer Vision with Open CV",
+      "category": "Computer Vision",
+      "excerpt": "Learn how to build a car counting system using computer vision techniques with OpenCV. Detect and count vehicles in real-time from video streams for traffic analysis and monitoring applications",
+      "date": "2024-05-20",
+      "image": "/car-count-blog.webp",
+      "slug": "building-car-counting-system-computer-vision-opencv",
+      "link": "https://medium.com/@vanshkhaneja/building-a-car-counting-system-computer-vision-with-open-cv-7f5913e247c9"
     }
   ],
   "testimonials": [
