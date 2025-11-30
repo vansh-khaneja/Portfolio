@@ -1,34 +1,33 @@
 {
   "personal": {
     "name": "Vansh Khaneja",
-    "title": "AI Developer & ML Engineer",
+    "title": "AI Engineer & Full-Stack Developer",
     "description": "Computer Science student with a keen interest in artificial intelligence and machine learning",
     "email": "vanshkhaneja2004@gmail.com",
     "phone": "+91 7529928842",
     "location": "Delhi, India",
     "image": "/profile.jpg",
-    "resume": "/resume.pdf"
+    "resume": "/CV_VANSH_KHANEJA.pdf"
   },
   "social": {
     "linkedin": "https://www.linkedin.com/in/vansh-khaneja/",
-    "github": "https://github.com/yourusername",
-    "twitter": "https://twitter.com/yourusername",
-    "instagram": "https://instagram.com/yourusername"
+    "github": "https://github.com/vansh-khaneja"
+
   },
   "about": {
     "bio": "I'm a passionate developer with a keen eye for design and a love for creating seamless user experiences. With expertise in modern web technologies, I bring ideas to life through clean code and innovative solutions.",
     "skills": [
       {
-        "name": "AI/ML",
-        "level": 5
+        "name": "Agents & RAG Systems",
+        "level": 95
       },
       {
-        "name": "TensorFlow & OpenCV",
+        "name": "Vision & Multimodal AI",
         "level": 90
       },
       {
-        "name": "AWS & Docker",
-        "level": 85
+        "name": "Next.js & TypeScript",
+        "level": 88
       }
     ],
     "stats": [
@@ -94,8 +93,15 @@
       "id": 3,
       "title": "AI Intern",
       "company": "Helios Infotech",
-      "period": "Oct 2024 - Apr 2025",
+      "period": "Jul 2025 - Present",
       "description": "Deployed web platform and AI services on AWS EC2"
+    },
+    {
+      "id": 4,
+      "title": "Freelance Developer",
+      "company": "Self-Employed",
+      "period": "2024 - Present",
+      "description": "Providing AI/ML solutions, web development, and consulting services to various clients on a project basis"
     }
   ],
   "education": [
@@ -124,7 +130,7 @@
       "description": "Visual workflow builder for AI applications. Design, deploy, and scale RAG systems with intuitive drag-and-drop interface",
       "image": "/convoflow-project.png",
       "technologies": ["RAG", "Docker", "AI", "Workflows"],
-      "link": "https://docs.convoflow.vanshkhaneja.com/",
+      "link": "https://convoflow.vanshkhaneja.com/",
       "github": "https://github.com/yourusername/convoflow"
     },
     {
@@ -133,7 +139,7 @@
       "category": "E-commerce & AI",
       "description": "AI-powered fashion e-commerce platform with personalized shopping experience and virtual try-on features",
       "image": "/drapely-project.png",
-      "technologies": ["Next.js", "AI", "E-commerce", "ML"],
+      "technologies": ["Next.js", "VTON", "E-commerce", "ML"],
       "link": "https://drapely-ai.yashverma.site/",
       "github": "https://github.com/yourusername/drapely"
     },
@@ -143,9 +149,19 @@
       "category": "Documentation & AI",
       "description": "Comprehensive documentation platform for ConvoFlow with AI-powered explanations, interactive guides, and intelligent code examples",
       "image": "/docs-convoflow-project.png",
-      "technologies": ["Documentation", "AI", "Next.js", "RAG"],
+      "technologies": ["Documentation", "Typescript", "Next.js", "RAG"],
       "link": "https://docs.convoflow.vanshkhaneja.com/",
       "github": "https://github.com/yourusername/convoflow-docs"
+    },
+    {
+      "id": 4,
+      "title": "Digital Wardrobe",
+      "category": "AI & Fashion",
+      "description": "One-time wardrobe upload system where users can catalog all their clothing items, accessories, and outfits. AI-powered styling assistant suggests perfect outfits for any occasion (beach, office, party) with virtual try-on visualization",
+      "image": "/digital-wardrobe-project.png",
+      "technologies": ["Clip", "Virtual Try-On", "Computer Vision", "Next.js"],
+      "link": "#",
+      "github": "#"
     }
   ],
   "blog": [
@@ -154,9 +170,10 @@
       "title": "LLM as a Router: How to Fine-Tune Models for Intent-Based Workflows",
       "category": "AI & Machine Learning",
       "excerpt": "One of the most ignored use cases of Large Language Models (LLMs) is their role as routers. We usually think of LLMs as text generators, but they can also be used to route requests to different services based on intent",
-      "date": "2024-09-09",
-      "image": "/finetune-blog.gif",
-      "slug": "llm-as-router-fine-tune-intent-workflows"
+      "date": "2025-10-09",
+      "image": "/finetune-blog.png",
+      "slug": "llm-as-router-fine-tune-intent-workflows",
+      "link": "https://medium.com/@vanshkhaneja/llm-as-a-router-how-to-fine-tune-models-for-intent-based-workflows-6d272eab55d1"
     },
     {
       "id": 2,
@@ -165,7 +182,8 @@
       "excerpt": "Data retrieval is a critical component in the creation of an efficient Retrieval Augment Generation (RAG) application. The challenge lies in balancing retrieval speed, accuracy, and computational efficiency",
       "date": "2024-07-21",
       "image": "/mrl-blog.webp",
-      "slug": "multi-stage-vector-querying-mrl-qdrant"
+      "slug": "multi-stage-vector-querying-mrl-qdrant",
+      "link": "https://medium.com/@vanshkhaneja/multi-stage-vector-querying-using-matryoshka-representation-learning-mrl-in-qdrant-ddbe425d88f4"
     },
     {
       "id": 3,
@@ -174,7 +192,8 @@
       "excerpt": "Imagine a world where technology seamlessly connects vision and action, transforming our interaction with the environment",
       "date": "2024-06-09",
       "image": "/image-search-blog.webp",
-      "slug": "car-model-detection-reverse-image-search"
+      "slug": "car-model-detection-reverse-image-search",
+      "link": "https://medium.com/@vanshkhaneja/car-model-detection-and-reverse-image-search-ai-8fc2b41c75ee"
     }
   ],
   "testimonials": [

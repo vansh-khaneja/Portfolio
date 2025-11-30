@@ -72,16 +72,8 @@ export default function Home() {
 
       {/* Mobile Name Header */}
       <div className="md:hidden text-left pt-16 pb-4 px-6">
-        <h1 className="text-[40px] font-bold leading-none tracking-tight">
-          <span className="text-gray-900">{firstName}</span>{' '}
-          <span 
-            style={{
-              WebkitTextStroke: '1.5px #000',
-              WebkitTextFillColor: 'transparent',
-            }}
-          >
-            {lastName}
-          </span>
+        <h1 className="text-[40px] font-bold leading-none tracking-tight text-gray-900">
+          {firstName} {lastName}
         </h1>
       </div>
 
@@ -135,51 +127,61 @@ export default function Home() {
             <li>
               <a href="#about" className="flex items-center justify-between text-gray-300 hover:text-white transition-colors text-sm tracking-[0.2em]">
                 <span>ABOUT ME</span>
-                {activeSection === 'about' ? (
-                  <span className="w-3 h-3 rounded-full border-2 border-dashed border-gray-500"></span>
-                ) : (
-                  <span className="w-2 h-2 rounded-full bg-white"></span>
-                )}
+                <span className="w-4 h-4 flex items-center justify-center">
+                  {activeSection === 'about' ? (
+                    <span className="w-4 h-4 rounded-full border-2 border-dashed border-white animate-pulse"></span>
+                  ) : (
+                    <span className="w-2 h-2 rounded-full bg-white"></span>
+                  )}
+                </span>
               </a>
             </li>
             <li>
               <a href="#resume" className="flex items-center justify-between text-gray-300 hover:text-white transition-colors text-sm tracking-[0.2em]">
                 <span>RESUME</span>
-                {activeSection === 'resume' ? (
-                  <span className="w-3 h-3 rounded-full border-2 border-dashed border-gray-500"></span>
-                ) : (
-                  <span className="w-2 h-2 rounded-full bg-white"></span>
-                )}
+                <span className="w-4 h-4 flex items-center justify-center">
+                  {activeSection === 'resume' ? (
+                    <span className="w-4 h-4 rounded-full border-2 border-dashed border-white animate-pulse"></span>
+                  ) : (
+                    <span className="w-2 h-2 rounded-full bg-white"></span>
+                  )}
+                </span>
               </a>
             </li>
             <li>
               <a href="#portfolio" className="flex items-center justify-between text-gray-300 hover:text-white transition-colors text-sm tracking-[0.2em]">
                 <span>PORTFOLIO</span>
-                {activeSection === 'portfolio' ? (
-                  <span className="w-3 h-3 rounded-full border-2 border-dashed border-gray-500"></span>
-                ) : (
-                  <span className="w-2 h-2 rounded-full bg-white"></span>
-                )}
+                <span className="w-4 h-4 flex items-center justify-center">
+                  {activeSection === 'portfolio' ? (
+                    <span className="w-4 h-4 rounded-full border-2 border-dashed border-white animate-pulse"></span>
+                  ) : (
+                    <span className="w-2 h-2 rounded-full bg-white"></span>
+                  )}
+                </span>
               </a>
             </li>
             <li>
               <a href="#blog" className="flex items-center justify-between text-gray-300 hover:text-white transition-colors text-sm tracking-[0.2em]">
                 <span>BLOG</span>
-                {activeSection === 'blog' ? (
-                  <span className="w-3 h-3 rounded-full border-2 border-dashed border-gray-500"></span>
-                ) : (
-                  <span className="w-2 h-2 rounded-full bg-white"></span>
-                )}
+                <span className="w-4 h-4 flex items-center justify-center">
+                  {activeSection === 'blog' ? (
+                    <span className="w-4 h-4 rounded-full border-2 border-dashed border-white animate-pulse"></span>
+                  ) : (
+                    <span className="w-2 h-2 rounded-full bg-white"></span>
+                  )}
+                </span>
               </a>
             </li>
             <li>
               <a href="#contact" className="flex items-center justify-between text-gray-300 hover:text-white transition-colors text-sm tracking-[0.2em]">
                 <span>CONTACT</span>
-                {activeSection === 'contact' ? (
-                  <span className="w-3 h-3 rounded-full border-2 border-dashed border-gray-500"></span>
-                ) : (
-                  <span className="w-2 h-2 rounded-full bg-white"></span>
-                )}
+                <span className="w-4 h-4 flex items-center justify-center">
+                  {activeSection === 'contact' ? (
+                    <span className="w-4 h-4 rounded-full border-2 border-dashed border-white animate-pulse"></span>
+                  ) : (
+                    <span className="w-2 h-2 rounded-full bg-white"></span>
+                  )}
+                </span>
               </a>
             </li>
           </ul>
@@ -223,8 +225,8 @@ export default function Home() {
                 {/* Skills Pills */}
                 <div className="flex flex-wrap gap-2 md:gap-3 mb-6">
                   {portfolioData.about.skills.map((skill) => (
-                    <div key={skill.name} className="px-4 md:px-6 py-2 md:py-2.5 border-2 border-gray-900 rounded-full font-medium text-sm md:text-base">
-                      {skill.name}<span className="text-gray-500">({skill.level}%)</span>
+                    <div key={skill.name} className="px-4 md:px-6 py-2 md:py-2.5 border border-dashed border-gray-900 rounded-full font-medium text-sm md:text-base">
+                      {skill.name}<span className="text-gray-500 ml-1">({skill.level}%)</span>
                     </div>
                   ))}
                 </div>
@@ -234,8 +236,13 @@ export default function Home() {
                   {portfolioData.about.stats.map((stat, index) => (
                     <div key={index} className="text-left">
                       <div className="flex items-start mb-2">
+                        {/* Mobile: Solid text */}
+                        <span className="text-5xl font-bold mr-2 text-gray-900 md:hidden">
+                          {stat.value}
+                        </span>
+                        {/* Desktop: Outlined text */}
                         <span 
-                          className="text-5xl md:text-6xl font-bold mr-2"
+                          className="hidden md:inline-block text-6xl font-bold mr-2"
                           style={{
                             WebkitTextStroke: '2px #000',
                             WebkitTextFillColor: 'transparent',
@@ -243,7 +250,7 @@ export default function Home() {
                         >
                           {stat.value}
                         </span>
-                        <span className="text-2xl md:text-3xl font-bold mt-1">+</span>
+                        <span className="text-2xl md:text-3xl font-bold mt-1 text-gray-900">+</span>
                       </div>
                       <div className="text-xs md:text-sm font-bold tracking-wider uppercase">
                         {stat.label}
@@ -261,7 +268,7 @@ export default function Home() {
           <div className="w-full max-w-5xl mx-auto md:px-8">
             <div className="bg-white md:border-2 border-gray-100 md:rounded-2xl p-6 md:p-8 md:shadow-lg w-full">
               <div className="text-left">
-                <div className="text-xs md:text-sm text-gray-400 mb-2 md:mb-3 tracking-widest font-mono">// RESUME</div>
+                <div className="text-xs md:text-sm text-gray-400 mb-2 md:mb-3 tracking-widest font-mono">// EXPERIENCE</div>
                 
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
                   Education & Experience
@@ -379,7 +386,7 @@ export default function Home() {
             {/* Portfolio Card */}
             <div className="bg-white md:border-2 border-gray-100 md:rounded-2xl p-6 md:p-8 md:shadow-lg w-full">
               <div className="text-left">
-                <div className="text-xs md:text-sm text-gray-400 mb-2 md:mb-3 tracking-widest font-mono">// PORTFOLIO</div>
+                <div className="text-xs md:text-sm text-gray-400 mb-2 md:mb-3 tracking-widest font-mono">// PROJECTS</div>
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-2 md:mb-3 leading-tight">My Latest Works</h2>
                 <p className="text-sm md:text-base text-gray-600 mb-6">Some of my recent projects</p>
                 
@@ -423,7 +430,7 @@ export default function Home() {
             <div className="bg-white md:border-2 border-gray-100 md:rounded-2xl p-6 md:p-8 md:shadow-lg w-full">
               <div className="text-left">
                 <div className="text-xs md:text-sm text-gray-400 mb-2 md:mb-3 tracking-widest font-mono">// BLOGS</div>
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">Latest Blog Posts</h2>
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">Blog Posts</h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5">
                   {portfolioData.blog.slice(0, 3).map((post) => (
@@ -445,7 +452,7 @@ export default function Home() {
                       </div>
                       <h3 className="text-base md:text-lg font-bold mb-1.5 group-hover:text-gray-600 transition-colors line-clamp-2">{post.title}</h3>
                       <p className="text-gray-600 text-sm mb-2 line-clamp-3 flex-grow">{post.excerpt}</p>
-                      <a href={`/blog/${post.slug}`} className="text-sm font-medium hover:underline inline-flex items-center gap-1 mt-auto">
+                      <a href={post.link || `/blog/${post.slug}`} target={post.link ? "_blank" : "_self"} rel={post.link ? "noopener noreferrer" : undefined} className="text-sm font-medium hover:underline inline-flex items-center gap-1 mt-auto">
                         Read more →
                       </a>
                     </article>
