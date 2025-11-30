@@ -106,7 +106,136 @@ export default function Home() {
     }
   };
 
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://vanshkhaneja.com';
+  
+  // Structured Data (JSON-LD)
+  const personSchema = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": portfolioData.personal.name,
+    "jobTitle": portfolioData.personal.title,
+    "description": portfolioData.personal.description,
+    "email": portfolioData.personal.email,
+    "telephone": portfolioData.personal.phone,
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": portfolioData.personal.location
+    },
+    "url": siteUrl,
+    "sameAs": [
+      portfolioData.social.linkedin,
+      portfolioData.social.github
+    ],
+    "image": `${siteUrl}${portfolioData.personal.image}`,
+    "knowsAbout": portfolioData.about.skills.map(skill => skill.name)
+  };
+
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": `${portfolioData.personal.name} Portfolio`,
+    "url": siteUrl,
+    "author": {
+      "@type": "Person",
+      "name": portfolioData.personal.name
+    },
+    "description": portfolioData.personal.description
+  };
+
+  const collectionPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Portfolio Projects",
+    "description": "Collection of projects by Vansh Khaneja",
+    "url": `${siteUrl}#portfolio`,
+    "mainEntity": {
+      "@type": "ItemList",
+      "itemListElement": portfolioData.projects.map((project, index) => ({
+        "@type": "ListItem",
+        "position": index + 1,
+        "item": {
+          "@type": "CreativeWork",
+          "name": project.title,
+          "description": project.description,
+          "url": project.link !== "#" ? project.link : `${siteUrl}#portfolio`,
+          "image": `${siteUrl}${project.image}`,
+          "keywords": project.technologies.join(", ")
+        }
+      }))
+    }
+  };
+
+  const blogPostsSchema = portfolioData.blog.map(post => ({
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": post.title,
+    "description": post.excerpt,
+    "image": `${siteUrl}${post.image}`,
+    "datePublished": post.date,
+    "author": {
+      "@type": "Person",
+      "name": portfolioData.personal.name,
+      "url": siteUrl
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": portfolioData.personal.name
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": post.link
+    },
+    "articleSection": post.category,
+    "keywords": post.category
+  }));
+
+  const projectsSchema = portfolioData.projects.map(project => ({
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": project.title,
+    "description": project.description,
+    "applicationCategory": project.category,
+    "operatingSystem": "Web",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "screenshot": `${siteUrl}${project.image}`,
+    "url": project.link !== "#" ? project.link : undefined,
+    "keywords": project.technologies.join(", ")
+  }));
+
   return (
+    <>
+      {/* Structured Data (JSON-LD) */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionPageSchema) }}
+      />
+      {blogPostsSchema.map((schema, index) => (
+        <script
+          key={`blog-${index}`}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+      ))}
+      {projectsSchema.map((schema, index) => (
+        <script
+          key={`project-${index}`}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+      ))}
+      
     <div className="min-h-screen bg-white relative" style={{
       backgroundImage: 'radial-gradient(circle, #d1d5db 1px, transparent 1px)',
       backgroundSize: '24px 24px'
@@ -508,9 +637,12 @@ export default function Home() {
                           </span>
                         </div>
                       </div>
-                      <div className="text-xs text-gray-500 mb-1.5">
+                      <time 
+                        dateTime={post.date}
+                        className="text-xs text-gray-500 mb-1.5 block"
+                      >
                         Posted on {new Date(post.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
-                      </div>
+                      </time>
                       <h3 className="text-base md:text-lg font-bold mb-1.5 group-hover:text-gray-600 transition-colors line-clamp-2">{post.title}</h3>
                       <p className="text-gray-600 text-sm mb-2 line-clamp-3 flex-grow">{post.excerpt}</p>
                       <a href={post.link || `/blog/${post.slug}`} target={post.link ? "_blank" : "_self"} rel={post.link ? "noopener noreferrer" : undefined} className="text-sm font-medium hover:underline inline-flex items-center gap-1 mt-auto">
@@ -535,9 +667,11 @@ export default function Home() {
                 <p className="text-gray-600 mb-5 text-sm">If you want to contact me, just call me or email.</p>
 
                 {/* Email Display */}
-                <div className="mb-6 inline-block px-4 py-2 rounded-full border-2 border-dashed border-gray-300 bg-white">
-                  <p className="text-gray-900 text-xs md:text-sm font-medium">Email: {portfolioData.personal.email}</p>
-                </div>
+                <address className="mb-6 inline-block px-4 py-2 rounded-full border-2 border-dashed border-gray-300 bg-white not-italic">
+                  <p className="text-gray-900 text-xs md:text-sm font-medium">
+                    Email: <a href={`mailto:${portfolioData.personal.email}`} className="hover:underline">{portfolioData.personal.email}</a>
+                  </p>
+                </address>
 
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -601,5 +735,6 @@ export default function Home() {
       {/* Chatbot */}
       <ChatBot />
     </div>
+    </>
   );
 }
