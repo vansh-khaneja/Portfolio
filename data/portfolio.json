@@ -1,0 +1,220 @@
+{
+  "personal": {
+    "name": "Vansh Khaneja",
+    "title": "AI Developer & ML Engineer",
+    "description": "Computer Science student with a keen interest in artificial intelligence and machine learning",
+    "email": "vanshkhaneja2004@gmail.com",
+    "phone": "+91 7529928842",
+    "location": "Delhi, India",
+    "image": "/profile.jpg",
+    "resume": "/resume.pdf"
+  },
+  "social": {
+    "linkedin": "https://www.linkedin.com/in/vansh-khaneja/",
+    "github": "https://github.com/yourusername",
+    "twitter": "https://twitter.com/yourusername",
+    "instagram": "https://instagram.com/yourusername"
+  },
+  "about": {
+    "bio": "I'm a passionate developer with a keen eye for design and a love for creating seamless user experiences. With expertise in modern web technologies, I bring ideas to life through clean code and innovative solutions.",
+    "skills": [
+      {
+        "name": "Python & AI/ML",
+        "level": 95
+      },
+      {
+        "name": "TensorFlow & OpenCV",
+        "level": 90
+      },
+      {
+        "name": "AWS & Docker",
+        "level": 85
+      }
+    ],
+    "stats": [
+      {
+        "value": "8.8",
+        "label": "CGPA",
+        "icon": "🎓"
+      },
+      {
+        "value": "2",
+        "label": "AI Projects",
+        "icon": "🤖"
+      },
+      {
+        "value": "3",
+        "label": "Internships",
+        "icon": "💼"
+      }
+    ]
+  },
+  "services": [
+    {
+      "id": 1,
+      "title": "Web Development",
+      "description": "Building responsive, performant web applications using modern frameworks and best practices",
+      "icon": "💻"
+    },
+    {
+      "id": 2,
+      "title": "UI/UX Design",
+      "description": "Creating intuitive and beautiful user interfaces that provide excellent user experiences",
+      "icon": "🎨"
+    },
+    {
+      "id": 3,
+      "title": "Mobile Development",
+      "description": "Developing cross-platform mobile applications with React Native and modern tools",
+      "icon": "📱"
+    },
+    {
+      "id": 4,
+      "title": "Consulting & Strategy",
+      "description": "Providing technical consultation and strategic planning for digital products",
+      "icon": "💡"
+    }
+  ],
+  "experience": [
+    {
+      "id": 1,
+      "title": "AI Research Intern",
+      "company": "Superteams.ai",
+      "period": "Jun 2024 - Aug 2024",
+      "description": "Conducted AI/ML research and contributed to innovative solutions"
+    },
+    {
+      "id": 2,
+      "title": "SDE Intern",
+      "company": "Mersate",
+      "period": "Oct 2024 - Apr 2025",
+      "description": "Deployed web platform and AI services on AWS EC2"
+    },
+    {
+      "id": 3,
+      "title": "AI Intern",
+      "company": "Helios Infotech",
+      "period": "Oct 2024 - Apr 2025",
+      "description": "Deployed web platform and AI services on AWS EC2"
+    }
+  ],
+  "education": [
+    {
+      "id": 1,
+      "degree": "B.Tech in Computer Science",
+      "field": "CGPA: 8.8/10",
+      "school": "Guru Gobind Singh Indraprastha University",
+      "period": "2022 - 2026",
+      "description": "Focused on artificial intelligence, machine learning, and software engineering"
+    },
+    {
+      "id": 2,
+      "degree": "CBSE Board (10+2)",
+      "field": "Percentage: 94.6%",
+      "school": "Goodley Public School",
+      "period": "2020 - 2022",
+      "description": "Completed high school with focus on mathematics and computer science"
+    }
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "title": "LegalAI Bot",
+      "category": "AI & NLP",
+      "description": "References-based agentic AI bot specialized for law-based questions with semantic search and LLM-powered responses",
+      "image": "/projects/project1.jpg",
+      "technologies": ["FastAPI", "Llama 3", "Qdrant", "NLP"],
+      "link": "https://example.com",
+      "github": "https://github.com/yourusername/legalai"
+    },
+    {
+      "id": 2,
+      "title": "Nutr AI Searcher",
+      "category": "Computer Vision",
+      "description": "Multimodal food analysis application using CLIP model for nutrient identification from images and text",
+      "image": "/projects/project2.jpg",
+      "technologies": ["Python", "OpenCV", "CLIP", "Qdrant"],
+      "link": "https://example.com",
+      "github": "https://github.com/yourusername/nutrai"
+    },
+    {
+      "id": 3,
+      "title": "AI Customer Support Bot",
+      "category": "AI & Automation",
+      "description": "Automated customer support chatbot with product recommendations for e-commerce",
+      "image": "/projects/project3.jpg",
+      "technologies": ["Python", "NLP", "FastAPI"],
+      "link": "https://example.com",
+      "github": "https://github.com/yourusername/chatbot"
+    },
+    {
+      "id": 4,
+      "title": "Product Image Editor",
+      "category": "Computer Vision",
+      "description": "Automated solution for detecting visual defects and aligning product images for catalogues",
+      "image": "/projects/project4.jpg",
+      "technologies": ["OpenCV", "YOLOv8", "Python"],
+      "link": "https://example.com",
+      "github": "https://github.com/yourusername/image-editor"
+    }
+  ],
+  "blog": [
+    {
+      "id": 1,
+      "title": "LLM as a Router: How to Fine-Tune Models for Intent-Based Workflows",
+      "category": "AI & Machine Learning",
+      "excerpt": "One of the most ignored use cases of Large Language Models (LLMs) is their role as routers. We usually think of LLMs as text generators, but they can also be used to route requests to different services based on intent",
+      "date": "2024-09-09",
+      "image": "/finetune-blog.gif",
+      "slug": "llm-as-router-fine-tune-intent-workflows"
+    },
+    {
+      "id": 2,
+      "title": "Multi-Stage Vector Querying Using Matryoshka Representation Learning (MRL) in Qdrant",
+      "category": "AI & Vector Search",
+      "excerpt": "Data retrieval is a critical component in the creation of an efficient Retrieval Augment Generation (RAG) application. The challenge lies in balancing retrieval speed, accuracy, and computational efficiency",
+      "date": "2024-07-21",
+      "image": "/mrl-blog.webp",
+      "slug": "multi-stage-vector-querying-mrl-qdrant"
+    },
+    {
+      "id": 3,
+      "title": "Car Model Detection and Reverse Image Search AI with ImageBind, Qdrant and Streamlit",
+      "category": "Computer Vision",
+      "excerpt": "Imagine a world where technology seamlessly connects vision and action, transforming our interaction with the environment",
+      "date": "2024-06-09",
+      "image": "/image-search-blog.webp",
+      "slug": "car-model-detection-reverse-image-search"
+    }
+  ],
+  "testimonials": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "position": "CEO, Tech Startup",
+      "company": "StartupCo",
+      "text": "Exceptional work! The website exceeded our expectations in both design and functionality.",
+      "avatar": "/testimonials/person1.jpg",
+      "rating": 5
+    },
+    {
+      "id": 2,
+      "name": "Jane Smith",
+      "position": "Product Manager",
+      "company": "Digital Agency",
+      "text": "A talented developer who delivers high-quality work on time. Highly recommended!",
+      "avatar": "/testimonials/person2.jpg",
+      "rating": 5
+    },
+    {
+      "id": 3,
+      "name": "Mike Johnson",
+      "position": "Founder",
+      "company": "Creative Studio",
+      "text": "Great attention to detail and excellent communication throughout the project.",
+      "avatar": "/testimonials/person3.jpg",
+      "rating": 5
+    }
+  ]
+}
+
