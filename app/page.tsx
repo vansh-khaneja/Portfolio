@@ -468,21 +468,13 @@ export default function Home() {
                 <div className="md:hidden space-y-8">
                   {/* Education */}
                   <div>
-                    <div className="flex items-center gap-2 mb-4">
-                      <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z"/>
-                      </svg>
-                    </div>
                     <div className="relative">
                       {portfolioData.education.map((edu, index) => (
                         <div key={edu.id} className="relative pl-6 pb-6 last:pb-0">
                           {index !== portfolioData.education.length - 1 && (
-                            <div className="absolute left-0 top-[1.125rem] bottom-0 border-l-2 border-dashed border-gray-200"></div>
+                            <div className="absolute left-0 top-[1.125rem] bottom-[-1.5rem] border-l-2 border-dashed border-gray-200"></div>
                           )}
-                          {index === portfolioData.education.length - 1 && (
-                            <div className="absolute left-0 top-[1.125rem] border-l-2 border-dashed border-gray-200 h-2"></div>
-                          )}
-                          <div className="absolute -left-[3px] top-[1.125rem] -translate-y-1/2 w-2 h-2 bg-gray-900 rounded-full"></div>
+                          <div className="absolute -left-[3px] top-[1.125rem] -translate-y-1/2 w-2 h-2 bg-gray-900 rounded-full z-10"></div>
                           <div className="inline-block px-3 py-1 bg-white border border-dashed border-gray-300 rounded-full text-xs text-gray-500 mb-2">{edu.period}</div>
                           <h4 className="text-base font-bold text-gray-900 mb-1">{edu.degree}</h4>
                           <div className="text-gray-600 text-sm mb-1.5">@ {edu.school}</div>
@@ -493,22 +485,13 @@ export default function Home() {
 
                   {/* Experience */}
                   <div>
-                    <div className="flex items-center gap-2 mb-4">
-                      <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z" clipRule="evenodd"/>
-                        <path d="M2 13.692V16a2 2 0 002 2h12a2 2 0 002-2v-2.308A24.974 24.974 0 0110 15c-2.796 0-5.487-.46-8-1.308z"/>
-                      </svg>
-                    </div>
                     <div className="relative">
                       {portfolioData.experience.map((exp, index) => (
                         <div key={exp.id} className="relative pl-6 pb-6 last:pb-0">
                           {index !== portfolioData.experience.length - 1 && (
-                            <div className="absolute left-0 top-[1.125rem] bottom-0 border-l-2 border-dashed border-gray-200"></div>
+                            <div className="absolute left-0 top-[1.125rem] bottom-[-1.5rem] border-l-2 border-dashed border-gray-200"></div>
                           )}
-                          {index === portfolioData.experience.length - 1 && (
-                            <div className="absolute left-0 top-[1.125rem] border-l-2 border-dashed border-gray-200 h-2"></div>
-                          )}
-                          <div className="absolute -left-[3px] top-[1.125rem] -translate-y-1/2 w-2 h-2 bg-gray-900 rounded-full"></div>
+                          <div className="absolute -left-[3px] top-[1.125rem] -translate-y-1/2 w-2 h-2 bg-gray-900 rounded-full z-10"></div>
                           <div className="inline-block px-3 py-1 bg-white border border-dashed border-gray-300 rounded-full text-xs text-gray-500 mb-2">{exp.period}</div>
                           <h4 className="text-base font-bold text-gray-900 mb-1">{exp.title}</h4>
                           <div className="text-gray-600 text-sm mb-1.5">@ {exp.company}</div>
@@ -527,12 +510,9 @@ export default function Home() {
                       {portfolioData.experience.map((exp, index) => (
                         <div key={exp.id} className="relative pl-6 pb-6 last:pb-0">
                           {index !== portfolioData.experience.length - 1 && (
-                            <div className="absolute left-0 top-[0.75rem] bottom-0 border-l-2 border-dashed border-gray-200"></div>
+                            <div className="absolute left-0 top-[0.75rem] bottom-[-1.5rem] border-l-2 border-dashed border-gray-200"></div>
                           )}
-                          {index === portfolioData.experience.length - 1 && (
-                            <div className="absolute left-0 top-[0.75rem] border-l-2 border-dashed border-gray-200 h-2"></div>
-                          )}
-                          <div className="absolute -left-[3px] top-[0.75rem] -translate-y-1/2 w-2 h-2 bg-gray-900 rounded-full"></div>
+                          <div className="absolute -left-[3px] top-[0.75rem] -translate-y-1/2 w-2 h-2 bg-gray-900 rounded-full z-10"></div>
                           <div className="text-sm text-gray-500 mb-1">{exp.period}</div>
                           <h4 className="text-lg font-bold text-gray-900 mb-1">{exp.title}</h4>
                           <div className="text-gray-600 font-medium mb-1.5">@ {exp.company}</div>
@@ -549,12 +529,9 @@ export default function Home() {
                       {portfolioData.education.map((edu, index) => (
                         <div key={edu.id} className="relative pl-6 pb-6 last:pb-0">
                           {index !== portfolioData.education.length - 1 && (
-                            <div className="absolute left-0 top-[0.75rem] bottom-0 border-l-2 border-dashed border-gray-200"></div>
+                            <div className="absolute left-0 top-[0.75rem] bottom-[-1.5rem] border-l-2 border-dashed border-gray-200"></div>
                           )}
-                          {index === portfolioData.education.length - 1 && (
-                            <div className="absolute left-0 top-[0.75rem] border-l-2 border-dashed border-gray-200 h-2"></div>
-                          )}
-                          <div className="absolute -left-[3px] top-[0.75rem] -translate-y-1/2 w-2 h-2 bg-gray-900 rounded-full"></div>
+                          <div className="absolute -left-[3px] top-[0.75rem] -translate-y-1/2 w-2 h-2 bg-gray-900 rounded-full z-10"></div>
                           <div className="text-sm text-gray-500 mb-1">{edu.period}</div>
                           <h4 className="text-lg font-bold text-gray-900 mb-1">{edu.degree}</h4>
                           <div className="text-gray-600 font-medium mb-0.5">{edu.field}</div>
@@ -581,32 +558,46 @@ export default function Home() {
                 <p className="text-sm md:text-base text-gray-600 mb-6">Some of my recent projects</p>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-                  {portfolioData.projects.map((project) => (
-                    <div key={project.id} className="group relative overflow-hidden rounded-xl bg-gray-50 hover:shadow-lg transition-all">
-                      <div className="aspect-video bg-gradient-to-br from-gray-100 to-gray-200 overflow-hidden relative">
-                        <img 
-                          src={project.image} 
-                          alt={project.title}
-                          className="w-full h-full object-cover"
-                        />
-                        {/* Category badge - visible on both mobile and desktop */}
-                        <div className="absolute top-2 left-2 bg-gray-900/40 backdrop-blur-md border border-white/10 text-white px-3 py-1 rounded-full text-xs font-medium uppercase tracking-wide shadow-lg">
-                          {project.category}
+                  {portfolioData.projects.map((project) => {
+                    const ProjectWrapper = project.link && project.link !== '#' ? 'a' : 'div';
+                    const wrapperProps = project.link && project.link !== '#' 
+                      ? { 
+                          href: project.link, 
+                          target: '_blank', 
+                          rel: 'noopener noreferrer',
+                          className: 'group relative overflow-hidden rounded-xl bg-gray-50 hover:shadow-lg transition-all cursor-pointer'
+                        }
+                      : { 
+                          className: 'group relative overflow-hidden rounded-xl bg-gray-50 hover:shadow-lg transition-all'
+                        };
+                    
+                    return (
+                      <ProjectWrapper key={project.id} {...wrapperProps}>
+                        <div className="aspect-video bg-gradient-to-br from-gray-100 to-gray-200 overflow-hidden relative">
+                          <img 
+                            src={project.image} 
+                            alt={project.title}
+                            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                          />
+                          {/* Category badge - visible on both mobile and desktop */}
+                          <div className="absolute top-2 left-2 bg-gray-900/40 backdrop-blur-md border border-white/10 text-white px-3 py-1 rounded-full text-xs font-medium uppercase tracking-wide shadow-lg">
+                            {project.category}
+                          </div>
                         </div>
-                      </div>
-                      <div className="p-4">
-                        <h3 className="text-base md:text-xl font-bold text-gray-900 mb-2">{project.title}</h3>
-                        <p className="text-gray-600 text-sm mb-3 line-clamp-2">{project.description}</p>
-                        <div className="flex flex-wrap gap-2">
-                          {project.technologies.slice(0, 3).map((tech) => (
-                            <span key={tech} className="px-3 py-1 bg-white border border-gray-200 text-xs rounded-full">
-                              {tech}
-                            </span>
-                          ))}
+                        <div className="p-4">
+                          <h3 className="text-base md:text-xl font-bold text-gray-900 mb-2">{project.title}</h3>
+                          <p className="text-gray-600 text-sm mb-3 line-clamp-2">{project.description}</p>
+                          <div className="flex flex-wrap gap-2">
+                            {project.technologies.slice(0, 3).map((tech) => (
+                              <span key={tech} className="px-3 py-1 bg-white border border-gray-200 text-xs rounded-full">
+                                {tech}
+                              </span>
+                            ))}
+                          </div>
                         </div>
-                      </div>
-                    </div>
-                  ))}
+                      </ProjectWrapper>
+                    );
+                  })}
                 </div>
               </div>
             </div>
@@ -620,36 +611,62 @@ export default function Home() {
             <div className="bg-white md:border-2 border-gray-100 md:rounded-2xl p-6 md:p-8 md:shadow-lg w-full">
               <div className="text-left">
                 <div className="text-xs md:text-sm text-gray-400 mb-2 md:mb-3 tracking-widest font-mono">// BLOGS</div>
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">Blog Posts</h2>
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-8 leading-tight">Blog Posts</h2>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5">
-                  {portfolioData.blog.map((post) => (
-                    <article key={post.id} className="group flex flex-col">
-                      <div className="h-40 md:h-40 bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl mb-3 relative overflow-hidden">
-                        <img 
-                          src={post.image} 
-                          alt={post.title}
-                          className="w-full h-full object-cover"
-                        />
-                        <div className="absolute top-2.5 left-2.5">
-                          <span className="px-3 py-1.5 bg-gray-900/40 backdrop-blur-md border border-white/10 text-white text-xs font-medium uppercase tracking-wide rounded-full shadow-lg">
-                            {post.category}
-                          </span>
+                <div className="space-y-6 md:space-y-8">
+                  {portfolioData.blog.slice(0, 3).map((post) => {
+                    const formatDate = (dateString: string) => {
+                      const date = new Date(dateString);
+                      const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+                      return `${months[date.getMonth()]} ${date.getDate()} ${date.getFullYear()}`;
+                    };
+
+                    return (
+                      <article key={post.id} className="flex flex-col md:flex-row gap-4 md:gap-6">
+                        {/* Thumbnail Image */}
+                        <a 
+                          href={post.link || `/blog/${post.slug}`} 
+                          target={post.link ? "_blank" : "_self"} 
+                          rel={post.link ? "noopener noreferrer" : undefined}
+                          className="w-full md:w-48 h-32 md:h-32 flex-shrink-0 rounded-lg overflow-hidden bg-gray-100 cursor-pointer group"
+                        >
+                          <img 
+                            src={post.image} 
+                            alt={post.title}
+                            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                          />
+                        </a>
+                        
+                        {/* Content */}
+                        <div className="flex-1 flex flex-col">
+                          <a 
+                            href={post.link || `/blog/${post.slug}`} 
+                            target={post.link ? "_blank" : "_self"} 
+                            rel={post.link ? "noopener noreferrer" : undefined}
+                            className="block"
+                          >
+                            <time 
+                              dateTime={post.date}
+                              className="text-sm text-gray-500 mb-2 block"
+                            >
+                              Posted on {formatDate(post.date)}
+                            </time>
+                            <h3 className="text-lg md:text-xl font-bold mb-3 underline decoration-gray-900 decoration-2 underline-offset-2 cursor-pointer hover:text-gray-600 transition-colors">
+                              {post.title}
+                            </h3>
+                          </a>
+                          <a 
+                            href={post.link || `/blog/${post.slug}`} 
+                            target={post.link ? "_blank" : "_self"} 
+                            rel={post.link ? "noopener noreferrer" : undefined}
+                            className="inline-flex items-center justify-center w-fit px-4 py-2 text-sm font-medium text-gray-900 border-2 border-dashed border-gray-400 rounded-full hover:bg-black hover:text-white hover:border-black transition-colors"
+                          >
+                            Read more
+                          </a>
                         </div>
-                      </div>
-                      <time 
-                        dateTime={post.date}
-                        className="text-xs text-gray-500 mb-1.5 block"
-                      >
-                        Posted on {new Date(post.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
-                      </time>
-                      <h3 className="text-base md:text-lg font-bold mb-1.5 group-hover:text-gray-600 transition-colors line-clamp-2">{post.title}</h3>
-                      <p className="text-gray-600 text-sm mb-2 line-clamp-3 flex-grow">{post.excerpt}</p>
-                      <a href={post.link || `/blog/${post.slug}`} target={post.link ? "_blank" : "_self"} rel={post.link ? "noopener noreferrer" : undefined} className="text-sm font-medium hover:underline inline-flex items-center gap-1 mt-auto">
-                        Read more →
-                      </a>
-                    </article>
-                  ))}
+                      </article>
+                    );
+                  })}
                 </div>
               </div>
             </div>
