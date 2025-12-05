@@ -80,24 +80,31 @@
       "title": "AI Research Intern",
       "company": "Superteams.ai",
       "period": "Jun 2024 - Aug 2024",
-      "description": "Worked with newly emerging technologies in the field of LLMs and RAG systems. Like ElasticSeach, PGVector, Indexify etc. "
+      "description": "Worked with newly emerging technologies in the field of LLMs and RAG systems like ElasticSearch, PGVector, Indexify etc."
     },
     {
       "id": 2,
       "title": "SDE Intern",
       "company": "Mersate",
       "period": "Oct 2024 - Apr 2025",
-      "description": "Worked over fashion e-commerce platform and various internal tools for the company."
+      "description": "Worked on fashion e-commerce platform and various internal tools for the company."
     },
     {
       "id": 3,
-      "title": "AI Intern",
-      "company": "Helios Infotech",
-      "period": "Jul 2025 - Present",
-      "description": "Worked on various project related to LLMs, Computer Vision, Image Processing, Agents etc."
+      "title": "Python Developer",
+      "company": "Empire Imports LLC",
+      "period": "May 2025 - Jul 2025 (Contract)",
+      "description": "Built an AI-powered customer support chatbot and automated product image editing solution for product catalogue optimization."
     },
     {
       "id": 4,
+      "title": "AI Developer",
+      "company": "Helios Infotech",
+      "period": "Jul 2025 - Present",
+      "description": "Working on various Python/AI projects covering computer vision, finetuning language models, and deploying Python backends for clients."
+    },
+    {
+      "id": 5,
       "title": "Freelance Developer",
       "company": "Self-Employed",
       "period": "2024 - Present",
@@ -131,7 +138,7 @@
       "image": "/convoflow-project.png",
       "technologies": ["RAG", "Docker", "AI", "Workflows"],
       "link": "https://convoflow.vanshkhaneja.com/",
-      "github": "https://github.com/yourusername/convoflow"
+      "github": "https://github.com/vansh-khaneja/ConvoFlow"
     },
     {
       "id": 2,
