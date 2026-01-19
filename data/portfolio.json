@@ -165,10 +165,10 @@
       "title": "Digital Wardrobe",
       "category": "AI & Fashion",
       "description": "One-time wardrobe upload system where users can catalog all their clothing items, accessories, and outfits. AI-powered styling assistant suggests perfect outfits for any occasion (beach, office, party) with virtual try-on visualization",
-      "image": "/digital-wardrobe-project.png",
+      "image": "/wearwhat-project.png",
       "technologies": ["Clip", "Virtual Try-On", "Computer Vision", "Next.js"],
-      "link": "#",
-      "github": "#"
+      "link": "https://wearwhat.vanshkhaneja.com/",
+      "github": "https://github.com/vansh-khaneja/WearWhat"
     }
   ],
   "blog": [
