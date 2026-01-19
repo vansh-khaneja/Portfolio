@@ -12,7 +12,8 @@
     "next": "16.0.5",
     "react": "19.2.0",
     "react-dom": "19.2.0",
-    "react-icons": "^5.0.0"
+    "react-icons": "^5.0.0",
+    "vercel": "^50.4.5"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
