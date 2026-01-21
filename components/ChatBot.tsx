@@ -12,12 +12,13 @@ export default function ChatBot() {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
     {
-      text: "Hello! This AI assistant feature is coming soon. Feel free to explore the portfolio in the meantime!",
+      text: "Hey there! I'm here to help you explore Vansh's portfolio. Feel free to ask about his projects, skills, experience, or anything else you'd like to know!",
       isUser: false,
       timestamp: new Date(),
     },
   ]);
   const [inputValue, setInputValue] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -35,8 +36,8 @@ export default function ChatBot() {
     }
   }, [isOpen]);
 
-  const handleSend = () => {
-    if (!inputValue.trim()) return;
+  const handleSend = async () => {
+    if (!inputValue.trim() || isLoading) return;
 
     const userMessage: Message = {
       text: inputValue,
@@ -44,25 +45,46 @@ export default function ChatBot() {
       timestamp: new Date(),
     };
 
-    setMessages([...messages, userMessage]);
+    setMessages((prev) => [...prev, userMessage]);
     setInputValue('');
+    setIsLoading(true);
 
-    // Simulate AI response
-    setTimeout(() => {
-      const response = getBotResponse(inputValue.toLowerCase());
+    try {
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ message: inputValue }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to get response');
+      }
+
       setMessages((prev) => [
         ...prev,
         {
-          text: response,
+          text: data.response,
           isUser: false,
           timestamp: new Date(),
         },
       ]);
-    }, 800);
-  };
-
-  const getBotResponse = (question: string) => {
-    return "This feature is coming soon! Stay tuned for an AI-powered assistant that can answer all your questions about Vansh.";
+    } catch (error) {
+      console.error('Chat error:', error);
+      setMessages((prev) => [
+        ...prev,
+        {
+          text: "Sorry, I'm having trouble responding right now. Please try again later.",
+          isUser: false,
+          timestamp: new Date(),
+        },
+      ]);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -124,6 +146,17 @@ export default function ChatBot() {
                 </div>
               </div>
             ))}
+            {isLoading && (
+              <div className="flex justify-start">
+                <div className="bg-white text-gray-900 border border-gray-200 rounded-tl-2xl rounded-tr-2xl rounded-br-2xl rounded-bl-none px-4 py-2.5">
+                  <div className="flex gap-1">
+                    <span className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></span>
+                    <span className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></span>
+                    <span className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></span>
+                  </div>
+                </div>
+              </div>
+            )}
             <div ref={messagesEndRef} />
           </div>
 
@@ -135,13 +168,14 @@ export default function ChatBot() {
                 type="text"
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
-                onKeyPress={(e) => e.key === 'Enter' && handleSend()}
-                placeholder="Type your message..."
-                className="flex-1 px-3 md:px-4 py-2 md:py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent text-xs md:text-sm"
+                onKeyDown={(e) => e.key === 'Enter' && !e.shiftKey && handleSend()}
+                placeholder={isLoading ? "Thinking..." : "Type your message..."}
+                disabled={isLoading}
+                className="flex-1 px-3 md:px-4 py-2 md:py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent text-xs md:text-sm disabled:bg-gray-100 disabled:cursor-not-allowed"
               />
               <button
                 onClick={handleSend}
-                disabled={!inputValue.trim()}
+                disabled={!inputValue.trim() || isLoading}
                 className="w-9 h-9 md:w-10 md:h-10 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
                 aria-label="Send message"
               >

@@ -98,7 +98,7 @@
     },
     {
       "id": 4,
-      "title": "AI Developer",
+      "title": "AI & Backend Developer",
       "company": "Helios Infotech",
       "period": "Jul 2025 - Present",
       "description": "Working on various Python/AI projects covering computer vision, finetuning language models, and deploying Python backends for clients."
@@ -152,13 +152,13 @@
     },
     {
       "id": 3,
-      "title": "ConvoFlow Docs",
-      "category": "Documentation & AI",
-      "description": "Comprehensive documentation platform for ConvoFlow with AI-powered explanations, interactive guides, and intelligent code examples",
-      "image": "/docs-convoflow-project.png",
-      "technologies": ["Documentation", "Typescript", "Next.js", "RAG"],
-      "link": "https://docs.convoflow.vanshkhaneja.com/",
-      "github": "https://github.com/vansh-khaneja/ConvoFlow-Docs"
+      "title": "LexScope",
+      "category": "Legal Tech & AI",
+      "description": "Legal assistant for Spanish law cases with document ingestion, semantic search, and intelligent query responses using RAG (Retrieval-Augmented Generation)",
+      "image": "/lexscope-project.png",
+      "technologies": ["Python", "FastAPI", "PostgreSQL", "OpenAI", "RAG"],
+      "link": "https://lexscope.vanshkhaneja.com/",
+      "github": "https://github.com/vansh-khaneja/lexscope"
     },
     {
       "id": 4,

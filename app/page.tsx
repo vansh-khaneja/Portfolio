@@ -559,33 +559,47 @@ export default function Home() {
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                   {portfolioData.projects.map((project) => {
-                    const ProjectWrapper = project.link && project.link !== '#' ? 'a' : 'div';
-                    const wrapperProps = project.link && project.link !== '#' 
-                      ? { 
-                          href: project.link, 
-                          target: '_blank', 
-                          rel: 'noopener noreferrer',
-                          className: 'group relative overflow-hidden rounded-xl bg-gray-50 hover:shadow-lg transition-all cursor-pointer'
-                        }
-                      : { 
-                          className: 'group relative overflow-hidden rounded-xl bg-gray-50 hover:shadow-lg transition-all'
-                        };
-                    
+                    const hasProjectLink = project.link && project.link !== '#';
+
                     return (
-                      <ProjectWrapper key={project.id} {...wrapperProps}>
-                        <div className="aspect-video bg-gradient-to-br from-gray-100 to-gray-200 overflow-hidden relative">
-                          <img 
-                            src={project.image} 
-                            alt={project.title}
-                            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                          />
-                          {/* Category badge - visible on both mobile and desktop */}
-                          <div className="absolute top-2 left-2 bg-gray-900/40 backdrop-blur-md border border-white/10 text-white px-3 py-1 rounded-full text-xs font-medium uppercase tracking-wide shadow-lg">
-                            {project.category}
+                      <div key={project.id} className="group relative overflow-hidden rounded-xl bg-gray-50 hover:shadow-lg transition-all">
+                        {/* Clickable image area */}
+                        {hasProjectLink ? (
+                          <a
+                            href={project.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="block aspect-video bg-gradient-to-br from-gray-100 to-gray-200 overflow-hidden relative cursor-pointer"
+                          >
+                            <img
+                              src={project.image}
+                              alt={project.title}
+                              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                            />
+                            <div className="absolute top-2 left-2 bg-gray-900/40 backdrop-blur-md border border-white/10 text-white px-3 py-1 rounded-full text-xs font-medium uppercase tracking-wide shadow-lg">
+                              {project.category}
+                            </div>
+                          </a>
+                        ) : (
+                          <div className="aspect-video bg-gradient-to-br from-gray-100 to-gray-200 overflow-hidden relative">
+                            <img
+                              src={project.image}
+                              alt={project.title}
+                              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                            />
+                            <div className="absolute top-2 left-2 bg-gray-900/40 backdrop-blur-md border border-white/10 text-white px-3 py-1 rounded-full text-xs font-medium uppercase tracking-wide shadow-lg">
+                              {project.category}
+                            </div>
                           </div>
-                        </div>
+                        )}
                         <div className="p-4">
-                          <h3 className="text-base md:text-xl font-bold text-gray-900 mb-2">{project.title}</h3>
+                          {hasProjectLink ? (
+                            <a href={project.link} target="_blank" rel="noopener noreferrer">
+                              <h3 className="text-base md:text-xl font-bold text-gray-900 mb-2 hover:text-gray-600 transition-colors">{project.title}</h3>
+                            </a>
+                          ) : (
+                            <h3 className="text-base md:text-xl font-bold text-gray-900 mb-2">{project.title}</h3>
+                          )}
                           <p className="text-gray-600 text-sm mb-3 line-clamp-2">{project.description}</p>
                           <div className="flex flex-wrap gap-2">
                             {project.technologies.slice(0, 3).map((tech) => (
@@ -601,7 +615,6 @@ export default function Home() {
                             href={project.github}
                             target="_blank"
                             rel="noopener noreferrer"
-                            onClick={(e) => e.stopPropagation()}
                             className="absolute bottom-2 right-2 bg-white/90 backdrop-blur-md border border-gray-200 text-black p-2 rounded-full hover:bg-gray-100 hover:shadow-md transition-all duration-200 shadow-lg z-10"
                             aria-label="View code on GitHub"
                           >
@@ -610,7 +623,7 @@ export default function Home() {
                             </svg>
                           </a>
                         )}
-                      </ProjectWrapper>
+                      </div>
                     );
                   })}
                 </div>
