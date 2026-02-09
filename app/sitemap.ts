@@ -26,18 +26,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   });
 
-  // Projects (if they have dedicated pages)
-  portfolioData.projects.forEach((project) => {
-    if (project.link && project.link !== '#' && !project.link.startsWith('#')) {
-      routes.push({
-        url: project.link,
-        lastModified: new Date(),
-        changeFrequency: 'yearly',
-        priority: 0.7,
-      });
-    }
-  });
-
   return routes;
 }
 

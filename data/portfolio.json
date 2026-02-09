@@ -102,13 +102,6 @@
       "company": "Helios Infotech",
       "period": "Jul 2025 - Present",
       "description": "Working on various Python/AI projects covering computer vision, finetuning language models, and deploying Python backends for clients."
-    },
-    {
-      "id": 5,
-      "title": "Freelance Developer",
-      "company": "Self-Employed",
-      "period": "2024 - Present",
-      "description": "Providing AI/ML and web development based services to various clients based on their requirements."
     }
   ],
   "education": [
@@ -132,43 +125,43 @@
   "projects": [
     {
       "id": 1,
-      "title": "ConvoFlow",
-      "category": "AI Workflows",
-      "description": "Visual workflow builder for AI applications. Design, deploy, and scale RAG systems with intuitive drag-and-drop interface",
-      "image": "/convoflow-project.png",
-      "technologies": ["RAG", "Docker", "AI", "Workflows"],
-      "link": "https://convoflow.vanshkhaneja.com/",
-      "github": "https://github.com/vansh-khaneja/ConvoFlow"
-    },
-    {
-      "id": 2,
-      "title": "Drapely.ai",
-      "category": "E-commerce & AI",
-      "description": "AI-powered fashion e-commerce platform with personalized shopping experience and virtual try-on features",
-      "image": "/drapely-project.png",
-      "technologies": ["Next.js", "VTON", "E-commerce", "ML"],
-      "link": "https://drapely-ai.yashverma.site/",
-      "github": "https://github.com/yourusername/drapely"
-    },
-    {
-      "id": 3,
-      "title": "LexScope",
-      "category": "Legal Tech & AI",
-      "description": "Legal assistant for Spanish law cases with document ingestion, semantic search, and intelligent query responses using RAG (Retrieval-Augmented Generation)",
-      "image": "/lexscope-project.png",
-      "technologies": ["Python", "FastAPI", "PostgreSQL", "OpenAI", "RAG"],
-      "link": "https://lexscope.vanshkhaneja.com/",
-      "github": "https://github.com/vansh-khaneja/lexscope"
-    },
-    {
-      "id": 4,
       "title": "WearWhat",
       "category": "AI & Fashion",
       "description": "One-time wardrobe upload system where users can catalog all their clothing items, accessories, and outfits. AI-powered styling assistant suggests perfect outfits for any occasion (beach, office, party) with virtual try-on visualization",
-      "image": "/wearwhat-project.png",
+      "image": "/wearwhat-1.png",
+      "images": ["/wearwhat-1.png", "/wearwhat-2.png", "/wearwhat-3.png", "/wearwhat-4.png", "/wearwhat-5.png"],
       "technologies": ["Clip", "PostgreSQL", "Computer Vision", "Next.js"],
-      "link": "https://wearwhat.vanshkhaneja.com/",
       "github": "https://github.com/vansh-khaneja/WearWhat"
+    },
+    {
+      "id": 2,
+      "title": "Prompt Ops",
+      "category": "MLOps",
+      "description": "End-to-end prompt lifecycle management platform. Create, version, and deploy AI prompts with git-like workflows, team collaboration, usage analytics, and multi-language SDK support",
+      "image": "/promptops-1.png",
+      "images": ["/promptops-1.png", "/promptops-2.png", "/promptops-3.png", "/promptops-4.png"],
+      "technologies": ["Prompts", "LLM", "SDK", "Versioning"],
+      "github": "https://github.com/vansh-khaneja/stacklyn"
+    },
+    {
+      "id": 3,
+      "title": "ConvoFlow",
+      "category": "AI Workflows",
+      "description": "Visual workflow builder for AI applications. Design, deploy, and scale RAG systems with intuitive drag-and-drop interface",
+      "image": "/convoflow-1.png",
+      "images": ["/convoflow-1.png", "/convoflow-2.png", "/convoflow-3.png", "/convoflow-4.png"],
+      "technologies": ["RAG", "Docker", "AI", "Workflows"],
+      "github": "https://github.com/vansh-khaneja/ConvoFlow"
+    },
+    {
+      "id": 4,
+      "title": "Medusa Bot",
+      "category": "AI & E-commerce",
+      "description": "Conversational shopping assistant for Open Source Medusa e-commerce store. Features natural language product search, intelligent order tracking, and real-time customer support with RAG-enhanced responses.",
+      "image": "/medusabot-1.png",
+      "images": ["/medusabot-1.png", "/medusabot-2.png", "/medusabot-3.png", "/medusabot-4.png", "/medusabot-5.png"],
+      "technologies": ["Meilisearch", "Redis", "Medusa JS", "LangGraph"],
+      "github": "https://github.com/vansh-khaneja/Medusa-Bot"
     }
   ],
   "blog": [
