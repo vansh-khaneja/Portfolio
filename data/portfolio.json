@@ -2,7 +2,7 @@
   "personal": {
     "name": "Vansh Khaneja",
     "title": "AI Engineer & Full-Stack Developer",
-    "description": "Computer Science student with a keen interest in artificial intelligence and machine learning",
+    "description": "AI & backend engineer experienced in designing scalable systems and building AI-powered applications",
     "email": "vanshkhaneja2004@gmail.com",
     "phone": "+91 7529928842",
     "location": "Delhi, India",
@@ -42,8 +42,8 @@
         "icon": "🚀"
       },
       {
-        "value": "3",
-        "label": "Internships",
+        "value": "2",
+        "label": "Years of Experience",
         "icon": "💼"
       }
     ]
@@ -100,8 +100,15 @@
       "id": 4,
       "title": "AI & Backend Developer",
       "company": "Helios Infotech",
-      "period": "Jul 2025 - Present",
-      "description": "Working on various Python/AI projects covering computer vision, finetuning language models, and deploying Python backends for clients."
+      "period": "Jul 2025 - Jun 2026",
+      "description": "Worked on various Python/AI projects covering computer vision, finetuning language models, and deploying Python backends for clients."
+    },
+    {
+      "id": 5,
+      "title": "Software Developer",
+      "company": "Fotello",
+      "period": "Jul 2026 - Sep 2026 (Contract)",
+      "description": "Built image processing features like lens correction for an AI-powered real estate photography web app, developed customer-facing reporting dashboards with data backfilling for usage insights, and revamped the cancellation flow to reduce churn."
     }
   ],
   "education": [
